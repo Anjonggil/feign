@@ -4,6 +4,7 @@ import com.example.feign.dto.LoginDto;
 import com.example.feign.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +18,7 @@ public class TestController {
 
     @PostMapping("/api/login")
     public Map<String,Object> login(
-            @RequestParam LoginDto loginDto
+            @RequestBody LoginDto loginDto
     ){
         return clientService.login(loginDto.getEmail(), loginDto.getPassword());
     }
